@@ -1,0 +1,40 @@
+@import '../styles/breakpoints.scss';
+
+.container {
+    padding: 0;
+    margin: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint(desktop) {
+        flex-direction: row;
+    }
+
+    .navbar {
+        width: 100vw;
+        padding: 0.3rem 0.5rem;
+
+        @include breakpoint(desktop) {
+            width: unset;
+            padding: 1rem;
+            flex-basis: 20%;
+            min-width: 10rem;
+            max-width: 25rem;
+        }
+    }
+
+    .page {
+        width: 100vw;
+        padding: 0.3rem 0.5rem;
+
+        @include breakpoint(desktop) {
+            padding: 1rem;
+        }
+
+        flex-grow: 1;
+    }
+}

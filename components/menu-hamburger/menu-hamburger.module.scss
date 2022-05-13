@@ -1,0 +1,129 @@
+@import '../../styles/breakpoints.scss';
+
+.container {
+    margin: 0;
+    padding: 0;
+    cursor: normal;
+
+    @include breakpoint(desktop) {
+        height: 100%;
+    }
+
+    label {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+
+        @include breakpoint(desktop) {
+            height: 100%;
+
+            width: 100%;
+        }
+
+        span {
+            background: black;
+            border-radius: 5px;
+            height: 5px;
+            margin: 2px 0;
+            transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+            &:nth-of-type(1) {
+                width: 50%;
+            }
+            &:nth-of-type(2) {
+                width: 100%;
+            }
+            &:nth-of-type(3) {
+                width: 75%;
+            }
+
+            @include breakpoint(desktop) {
+                visibility: hidden;
+                display: none;
+            }
+        }
+    }
+
+    input[type='checkbox'] {
+        display: none;
+
+        &:checked ~ span:nth-of-type(1) {
+            transform-origin: bottom;
+            transform: rotatez(45deg) translate(0px, 0px);
+        }
+        &:checked ~ span:nth-of-type(2) {
+            transform-origin: top;
+            transform: rotatez(-45deg);
+        }
+        &:checked ~ span:nth-of-type(3) {
+            transform-origin: bottom;
+            width: 100%;
+            transform: translate(0px, -10px) rotatez(45deg);
+        }
+
+        &:checked ~ .options {
+            visibility: visible;
+        }
+    }
+
+    .options {
+        position: absolute;
+        top: 100%;
+        right: 0;
+
+        visibility: hidden;
+
+        @include breakpoint(desktop) {
+            visibility: visible;
+            position: relative;
+            top: unset;
+            width: 100%;
+            height: 100%;
+
+            padding: 0.5rem 0;
+            margin-bottom: 0.5rem;
+        }
+
+        & > ul {
+            margin: 0;
+            padding: 0.8rem 1rem;
+            list-style: none;
+
+            & > li {
+                padding: 0.1rem 0;
+                cursor: pointer;
+
+                @include breakpoint(desktop) {
+                    padding: 0.7rem 0;
+                }
+
+                & > p {
+                    margin: 0;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                & > ul {
+                    list-style: none;
+                    visibility: hidden;
+                    display: none;
+
+                    @include breakpoint(desktop) {
+                        visibility: visible;
+                        display: block;
+                    }
+
+                    & > li {
+                        margin: 0.2rem 0;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
