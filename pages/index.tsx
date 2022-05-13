@@ -1,10 +1,12 @@
 import type { NextPage } from 'next';
+import { getImageSize } from 'next/dist/server/image-optimizer';
 import Head from 'next/head';
 import Image from 'next/image';
+import { getImages } from '../database/get_images';
 import { homeImageProps } from '../interfaces/interfaces';
 import styles from '../styles/Home.module.scss';
 
-const Home: NextPage = () => {
+const Home: NextPage<{images: {id: number, url: string}[]}> = ({images}) => {
     return (
         <div className={styles.container}>
             <Head>
@@ -16,26 +18,15 @@ const Home: NextPage = () => {
             <main className={styles.main}>
                 <h1 className={styles.title}>Illustrator</h1>
                 <div className={styles.grid}>
-                    <HomeImage
+                    {images.map((image) => (
+                        <HomeImage
                         {...{
-                            imageUrl: 'https://static.wikia.nocookie.net/starwars/images/6/6c/Yoda_TESB.jpg/revision/latest?cb=20070117221553&path-prefix=nl',
+                            imageUrl: image.url,
                         }}
                     />
-                    <HomeImage
-                        {...{
-                            imageUrl: 'https://static.wikia.nocookie.net/starwars/images/6/6c/Yoda_TESB.jpg/revision/latest?cb=20070117221553&path-prefix=nl',
-                        }}
-                    />
-                    <HomeImage
-                        {...{
-                            imageUrl: 'https://static.wikia.nocookie.net/starwars/images/6/6c/Yoda_TESB.jpg/revision/latest?cb=20070117221553&path-prefix=nl',
-                        }}
-                    />
-                    <HomeImage
-                        {...{
-                            imageUrl: 'https://static.wikia.nocookie.net/starwars/images/6/6c/Yoda_TESB.jpg/revision/latest?cb=20070117221553&path-prefix=nl',
-                        }}
-                    />
+                    )
+                    )}
+                    
                 </div>
             </main>
 
@@ -58,5 +49,16 @@ function HomeImage({ imageUrl }: homeImageProps) {
         </div>
     );
 }
+
+export async function getStaticProps() {
+    const res = await getImages();
+    const images = await res.rows;
+
+    return {
+      props: {
+          images
+      },
+    }
+  }
 
 export default Home;
