@@ -11,7 +11,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <Navbar />
             </div>
             <div className={style.page}>
-                <Component {...pageProps} />
+                <main className={style.main}>
+                    <Component {...pageProps} />
+                </main>
             </div>
         </div>
     );

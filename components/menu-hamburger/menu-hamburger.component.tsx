@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
 import style from './menu-hamburger.module.scss';
 
 export interface MenuHamburgerProps {}
 
 const defaultProps = {} as Required<MenuHamburgerProps>;
 
-// TODO: Make this into container (not agnostic and with links)
+// TODO: Make this into container (options come from props)
 export function MenuHamburger(props: MenuHamburgerProps) {
     const {} = { ...defaultProps, ...props };
 
@@ -18,20 +20,32 @@ export function MenuHamburger(props: MenuHamburgerProps) {
                 <div className={style.options}>
                     <ul>
                         <li>
-                            <p>Home</p>
+                            <Link href='/homepage'>
+                                <a>Home</a>
+                            </Link>
                         </li>
                         <li>
-                            <p>Galleries</p>
+                            <Link href='/gallery'>
+                                <a>Galleries</a>
+                            </Link>
                             <ul>
-                                <li>Type A</li>
-                                <li>Type B</li>
+                                <Link href='/gallery'>
+                                    <a>Type A</a>
+                                </Link>
+                                <Link href='/gallery'>
+                                    <a>Type B</a>
+                                </Link>
                             </ul>
                         </li>
                         <li>
-                            <p>About</p>
+                            <Link href='/homepage'>
+                                <a>About</a>
+                            </Link>
                         </li>
                         <li>
-                            <p>Contact</p>
+                            <Link href='/homepage'>
+                                <a>Contact</a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
