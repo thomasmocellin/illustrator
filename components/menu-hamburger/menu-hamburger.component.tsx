@@ -7,6 +7,7 @@ export interface MenuHamburgerProps {}
 const defaultProps = {} as Required<MenuHamburgerProps>;
 
 // TODO: Make this into container (options come from props)
+// TODO: Finish styling for mobile
 export function MenuHamburger(props: MenuHamburgerProps) {
     const {} = { ...defaultProps, ...props };
 

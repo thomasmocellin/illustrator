@@ -1,21 +1,32 @@
+@import '../../styles/breakpoints.scss';
+
 $curve-depression: 20px;
 $curve-offset: 3px;
 $img-size: 10rem;
 
 .container {
-    padding: 1rem;
+    position: relative;
+    padding: 0.5rem;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
+    @include breakpoint(desktop) {
+        padding: 1rem;
+    }
+
     & > h2 {
         position: relative;
-        z-index: 1;
+        z-index: 4;
 
         margin: 0;
-        font-size: xx-large;
-        font-size: 150px;
+        font-size: 80px;
+
+        @include breakpoint(desktop) {
+            z-index: 1;
+            font-size: 150px;
+        }
     }
 
     & > img {
@@ -25,13 +36,18 @@ $img-size: 10rem;
         width: $img-size;
         height: $img-size;
 
-        margin-top: -$img-size / 2;
+        margin-top: -$img-size / 4;
         margin-bottom: -$curve-depression / 2;
         border: 1px solid black;
         border-radius: 50%;
         object-fit: cover;
+
+        @include breakpoint(desktop) {
+            margin-top: -$img-size / 2;
+        }
     }
 
+    // Depression effect on top of text box
     .curve {
         position: relative;
         z-index: 2;
@@ -59,10 +75,15 @@ $img-size: 10rem;
         position: relative;
         z-index: 1;
 
-        padding: 1rem;
-        padding-top: max(1rem, $curve-depression);
+        padding: 0.5rem;
+        padding-top: max(0.5rem, $curve-depression);
         border: 1px solid black;
         border-radius: 10px;
+
+        @include breakpoint(desktop) {
+            padding: 1rem;
+            padding-top: max(1rem, $curve-depression);
+        }
 
         & > p {
             margin: 0.3rem 0;
