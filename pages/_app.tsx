@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import { Navbar } from '../containers/navbar/navbar.container';
 
 import '../styles/globals.scss';
-import style from '../styles/app.module.scss';
+import style from '../styles/pages/app.module.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (

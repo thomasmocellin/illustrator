@@ -38,7 +38,7 @@ export function MenuHamburger(props: MenuHamburgerProps) {
                             </ul>
                         </li>
                         <li>
-                            <Link href='/homepage'>
+                            <Link href='/about'>
                                 <a>About</a>
                             </Link>
                         </li>

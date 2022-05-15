@@ -1,0 +1,71 @@
+$curve-depression: 20px;
+$curve-offset: 3px;
+$img-size: 10rem;
+
+.container {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & > h2 {
+        position: relative;
+        z-index: 1;
+
+        margin: 0;
+        font-size: xx-large;
+        font-size: 150px;
+    }
+
+    & > img {
+        z-index: 3;
+
+        position: relative;
+        width: $img-size;
+        height: $img-size;
+
+        margin-top: -$img-size / 2;
+        margin-bottom: -$curve-depression / 2;
+        border: 1px solid black;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .curve {
+        position: relative;
+        z-index: 2;
+        width: $img-size;
+        height: $curve-depression * 2;
+
+        margin-bottom: -$curve-depression + $curve-offset;
+        border: 1px solid black;
+        border-radius: 50%;
+
+        background-color: white;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -2px;
+            width: 110%;
+            left: -5%;
+            border-top: $curve-depression + $curve-offset + 1px solid white;
+        }
+    }
+
+    .text {
+        position: relative;
+        z-index: 1;
+
+        padding: 1rem;
+        padding-top: max(1rem, $curve-depression);
+        border: 1px solid black;
+        border-radius: 10px;
+
+        & > p {
+            margin: 0.3rem 0;
+        }
+    }
+}
