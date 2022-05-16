@@ -18,7 +18,11 @@
         position: relative;
         z-index: 10;
         width: 100vw;
+
         padding: 0.3rem 0.5rem;
+        border-right: 1px solid rgba(128, 128, 128, 0.1);
+
+        background-color: rgba(128, 128, 128, 0.05);
 
         @include breakpoint(desktop) {
             width: unset;
