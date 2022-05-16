@@ -1,0 +1,64 @@
+.container {
+    .options {
+        display: flex;
+        justify-content: stretch;
+        margin: 0.2rem 0;
+
+        .button {
+            width: 3rem;
+            height: 3rem;
+
+            display: flex;
+            justify-content: center;
+
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0);
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+            cursor: pointer;
+
+            &:hover {
+                background-color: rgba(0, 84, 84, 0.5);
+                border: 1px solid rgba(0, 84, 84, 0.5);
+            }
+
+            &.selected {
+                background-color: rgba(0, 84, 84, 0.8);
+                border: 1px solid rgba(0, 84, 84, 0.5);
+                color: white;
+            }
+
+            & > a {
+                margin: auto;
+            }
+        }
+
+        & > ul {
+            flex-grow: 1;
+
+            display: flex;
+            justify-content: space-around;
+
+            list-style: none;
+
+            & > li {
+                flex-grow: 1;
+                text-align: center;
+
+                padding: 0.2rem;
+                border-radius: 10px;
+                border: 2px solid rgba(0, 0, 0, 0);
+
+                cursor: pointer;
+
+                &:hover {
+                    border-bottom: 2px solid rgba(0, 84, 84, 0.1);
+                }
+
+                &.selected {
+                    border-bottom: 2px solid rgba(0, 84, 84, 0.7);
+                }
+            }
+        }
+    }
+}

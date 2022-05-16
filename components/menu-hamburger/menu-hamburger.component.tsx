@@ -26,15 +26,15 @@ export function MenuHamburger(props: MenuHamburgerProps) {
                             </Link>
                         </li>
                         <li>
-                            <Link href='/gallery'>
+                            <Link href='/gallery/all'>
                                 <a>Galleries</a>
                             </Link>
                             <ul>
-                                <Link href='/gallery'>
-                                    <a>Type A</a>
+                                <Link href='/gallery/traditional'>
+                                    <a>Traditional</a>
                                 </Link>
-                                <Link href='/gallery'>
-                                    <a>Type B</a>
+                                <Link href='/gallery/digital'>
+                                    <a>Digital</a>
                                 </Link>
                             </ul>
                         </li>
@@ -44,7 +44,7 @@ export function MenuHamburger(props: MenuHamburgerProps) {
                             </Link>
                         </li>
                         <li>
-                            <Link href='/homepage'>
+                            <Link href='/contact'>
                                 <a>Contact</a>
                             </Link>
                         </li>
