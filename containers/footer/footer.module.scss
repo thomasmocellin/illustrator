@@ -1,0 +1,58 @@
+@import '../../styles/breakpoints.scss';
+
+.container {
+    display: block;
+    margin: 0;
+
+    @include breakpoint(desktop) {
+        order: 0;
+    }
+
+    .icons {
+        display: flex;
+        align-items: center;
+
+        float: right;
+
+        @include breakpoint(desktop) {
+            float: unset;
+        }
+
+        & > * {
+            margin-right: 1rem;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        & > svg {
+            padding: 0.05rem;
+            &:hover {
+                border: 1px solid black;
+                border-radius: 50%;
+            }
+        }
+
+        & > span {
+            display: none;
+
+            @include breakpoint(desktop) {
+                display: unset;
+            }
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+
+    & > p {
+        display: none;
+
+        font-size: larger;
+        color: rgba(128, 128, 128, 0.7);
+
+        @include breakpoint(desktop) {
+            display: unset;
+        }
+    }
+}
