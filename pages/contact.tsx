@@ -1,12 +1,9 @@
 import type { NextPage } from 'next';
 
-import { BiMessageDetail } from 'react-icons/bi';
-import { AiFillMail } from 'react-icons/ai';
-import { AiOutlineInstagram } from 'react-icons/ai';
-import { FaTiktok } from 'react-icons/fa';
-import style from '../styles/pages/contact.module.scss';
-import cx from 'classnames';
 import { SocialIcons } from '../components/social-icons/social-icons.component';
+
+import { BiMessageDetail } from 'react-icons/bi';
+import style from '../styles/pages/contact.module.scss';
 
 const dummyText = `Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
@@ -17,6 +14,7 @@ Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.`;
 
+// TODO: Make modal when clicking "Direct Request" btn: send immediately simple email
 const Contact: NextPage = () => {
     return (
         <div className={style.container}>

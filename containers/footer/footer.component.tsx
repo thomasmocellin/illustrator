@@ -7,7 +7,6 @@ export interface FooterProps {}
 
 const defaultProps = {} as Required<FooterProps>;
 
-// TODO: replace "share" with tiktok and also add mail icon (use already icons used in contacts)
 export function Footer(props: FooterProps) {
     const {} = { ...defaultProps, ...props };
 

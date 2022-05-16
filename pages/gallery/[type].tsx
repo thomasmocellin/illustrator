@@ -34,7 +34,7 @@ const dummyImgs = [
 ];
 
 // TODO: Create dropdown Component + Implement here
-const Gallery: NextPage = () => {
+const GalleryType: NextPage = () => {
     const { type } = useRouter().query;
     const [images, setImages] = useState([]);
 
@@ -76,4 +76,4 @@ const Gallery: NextPage = () => {
     );
 };
 
-export default Gallery;
+export default GalleryType;
