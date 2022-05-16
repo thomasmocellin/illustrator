@@ -15,7 +15,7 @@ Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.`
 const About: NextPage = () => {
     return (
         <div className={style.container}>
-            <h2>ABOUT</h2>
+            <h2>About</h2>
             <img src={kevinImg.src} />
             <div className={style.curve}></div>
             <div className={style.text}>

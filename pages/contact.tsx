@@ -20,11 +20,11 @@ const Contact: NextPage = () => {
     return (
         <div className={style.container}>
             <h2>Contact</h2>
+            <button>
+                <span>Direct Request</span>
+                <BiMessageDetail />
+            </button>
             <div className={style.content}>
-                <button>
-                    <span>Direct Request</span>
-                    <BiMessageDetail />
-                </button>
                 <div className={style.text}>
                     <p>{dummyText}</p>
                     <p>{dummyText}</p>

@@ -25,11 +25,38 @@
         }
     }
 
+    & > button {
+        margin: 0 0.1rem;
+        height: 4rem;
+        font-size: 2rem;
+
+        padding: 0.2rem 3rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+        cursor: pointer;
+        font-size: x-large;
+        // background-color: rgba(0, 84, 84, 0.5);
+        background-color: white;
+
+        @include breakpoint(desktop) {
+            margin: 0 2rem;
+            margin-bottom: 1.8rem;
+            font-size: xx-large;
+        }
+
+        &:hover {
+            background-color: rgba(0, 84, 84, 0.7);
+            color: white;
+        }
+    }
+
     .content {
         padding: 0.7rem;
         margin: 0;
-        border: 1px solid black;
-        border-radius: 10px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
 
         display: flex;
         flex-direction: column;
@@ -41,33 +68,8 @@
         }
 
         @include breakpoint(desktop) {
-            padding: 1rem;
-            margin: 0 10rem;
-        }
-
-        & > button {
-            margin: 0 0.1rem;
-            height: 4rem;
-            font-size: 2rem;
-
-            padding: 0.2rem;
-            border: 1px solid rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
-
-            cursor: pointer;
-            font-size: x-large;
-            background-color: rgba(0, 84, 84, 0.5);
-
-            @include breakpoint(desktop) {
-                margin: 0 2rem;
-                font-size: xx-large;
-            }
-
-            &:hover {
-                background-color: rgba(0, 84, 84, 0.7);
-                color: white;
-            }
+            padding: 1rem 1rem;
+            margin: 0 5rem;
         }
 
         .text {
@@ -76,6 +78,10 @@
 
             @include breakpoint(tablet) {
                 font-size: medium;
+            }
+
+            & > p:first-child {
+                margin-top: 0;
             }
         }
     }

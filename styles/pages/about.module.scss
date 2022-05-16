@@ -12,7 +12,13 @@ $img-size: 10rem;
     flex-direction: column;
     align-items: center;
 
+    @include breakpoint(tablet) {
+        padding: 1rem;
+        margin: 0 5rem;
+    }
+
     @include breakpoint(desktop) {
+        margin: 0 5rem;
         padding: 1rem;
     }
 
@@ -38,8 +44,9 @@ $img-size: 10rem;
 
         margin-top: -$img-size / 4;
         margin-bottom: -$curve-depression / 2;
-        border: 1px solid black;
+        border: 1px solid rgba(0, 0, 0, 0.4);
         border-radius: 50%;
+
         object-fit: cover;
 
         @include breakpoint(desktop) {
@@ -55,7 +62,7 @@ $img-size: 10rem;
         height: $curve-depression * 2;
 
         margin-bottom: -$curve-depression + $curve-offset;
-        border: 1px solid black;
+        border: 2px solid rgba(0, 0, 0, 0.2);
         border-radius: 50%;
 
         background-color: white;
@@ -64,10 +71,10 @@ $img-size: 10rem;
             content: '';
             display: block;
             position: absolute;
-            top: -2px;
+            top: -5px;
             width: 110%;
             left: -5%;
-            border-top: $curve-depression + $curve-offset + 1px solid white;
+            border-top: $curve-depression + $curve-offset + 3px solid white;
         }
     }
 
@@ -77,8 +84,8 @@ $img-size: 10rem;
 
         padding: 0.5rem;
         padding-top: max(0.5rem, $curve-depression);
-        border: 1px solid black;
-        border-radius: 10px;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
 
         @include breakpoint(desktop) {
             padding: 1rem;
