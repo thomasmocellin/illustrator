@@ -23,7 +23,7 @@ const Homepage: NextPage<{ images: { id: number; url: string }[] }> = ({ images 
 };
 
 export async function getStaticProps() {
-    const res = await getImages();
+    const res = await getImages(10);
     const images = res.rows || [];
 
     return {

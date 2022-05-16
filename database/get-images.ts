@@ -14,11 +14,13 @@ if (!conn) {
 
 export default conn;
 
-// TODO: Add columns for type of photo AND order in reverse by ID AND have option to filter first findings
-export async function getImages() {
+export async function getImages(limit: number) {
     try {
-        const query = 'select * from images';
-        const results = await conn.query(query);
+        const query = `SELECT *
+        FROM public.images
+        ORDER BY id DESC
+        LIMIT $1;`;
+        const results = await conn.query(query, [limit]);
         return results;
     } catch (error) {
         console.log(error);
