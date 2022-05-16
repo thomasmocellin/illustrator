@@ -2,11 +2,11 @@ import type { NextPage } from 'next';
 import { getImageSize } from 'next/dist/server/image-optimizer';
 import Head from 'next/head';
 import Image from 'next/image';
-import { getImages } from '../database/get_images';
+import { getImages } from '../database/get-images';
 import { homeImageProps } from '../interfaces/interfaces';
 import styles from '../styles/Home.module.scss';
 
-const Home: NextPage<{images: {id: number, url: string}[]}> = ({images}) => {
+const Home: NextPage<{ images: { id: number; url: string }[] }> = ({ images }) => {
     return (
         <div className={styles.container}>
             <Head>
@@ -20,13 +20,11 @@ const Home: NextPage<{images: {id: number, url: string}[]}> = ({images}) => {
                 <div className={styles.grid}>
                     {images.map((image) => (
                         <HomeImage
-                        {...{
-                            imageUrl: image.url,
-                        }}
-                    />
-                    )
-                    )}
-                    
+                            {...{
+                                imageUrl: image.url,
+                            }}
+                        />
+                    ))}
                 </div>
             </main>
 
@@ -55,10 +53,10 @@ export async function getStaticProps() {
     const images = await res.rows;
 
     return {
-      props: {
-          images
-      },
-    }
-  }
+        props: {
+            images,
+        },
+    };
+}
 
 export default Home;
