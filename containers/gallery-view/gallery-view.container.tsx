@@ -1,4 +1,6 @@
 import style from './gallery-view.module.scss';
+import RenderIfVisible from 'react-render-if-visible';
+import cx from 'classnames';
 
 export interface GalleryViewProps {
     srcs: string[];
@@ -6,10 +8,9 @@ export interface GalleryViewProps {
 
 const imgSizes: string[] = ['big', 'tall', '', '', 'wide', '', 'tall', '', 'wide', 'big', 'tall', '', '', '', '', 'wide', '', '', 'wide', '', 'wide', 'big'];
 
-// TODO: Import images on scroll down (use code-splitting/lazy loading)
-// TODO: Change name to container
 /**
  * Displays image cards in a grid with variable cell size
+ * @obs Images will only render when visible
  * @param scrs List of source strings for images
  */
 export function GalleryView(props: GalleryViewProps) {
@@ -19,8 +20,10 @@ export function GalleryView(props: GalleryViewProps) {
         <div className={style.container}>
             <div className={style.grid}>
                 {srcs.map((src, i) => (
-                    <div className={style[imgSizes[i % imgSizes.length]]}>
-                        <img src={src} alt='photo' />
+                    <div className={cx(style.cell, style[imgSizes[i % imgSizes.length]])}>
+                        <RenderIfVisible stayRendered={true}>
+                            <img src={src} alt='...' loading='lazy' />
+                        </RenderIfVisible>
                     </div>
                 ))}
             </div>

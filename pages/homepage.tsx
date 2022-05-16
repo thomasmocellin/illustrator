@@ -1,5 +1,5 @@
 import type { NextPage } from 'next';
-import { GalleryView } from '../containers/gallery-view/gallery-view.component';
+import { GalleryView } from '../containers/gallery-view/gallery-view.container';
 
 import style from '../styles/pages/homepage.module.scss';
 

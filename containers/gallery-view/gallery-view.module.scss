@@ -1,9 +1,13 @@
+@import '../../styles/mixins.scss';
+
 .container {
     img {
         max-width: 100%;
         height: auto;
         vertical-align: middle;
         display: inline-block;
+
+        @include animation-all-devices;
     }
 }
 
@@ -14,16 +18,23 @@
     grid-auto-rows: 200px;
     grid-auto-flow: dense;
 
-    & > div {
+    .cell {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
-    & > div > img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 5px;
+
+        // Render if visible wrapper
+        & > div {
+            width: 100%;
+            height: 100%;
+
+            & > img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 5px;
+            }
+        }
     }
 
     & .wide {
