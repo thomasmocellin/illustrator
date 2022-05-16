@@ -35,8 +35,7 @@ const dummyImgs = [
 
 // TODO: Create dropdown Component + Implement here
 const Gallery: NextPage = () => {
-    const router = useRouter();
-    const { type } = router.query;
+    const { type } = useRouter().query;
     const [images, setImages] = useState([]);
 
     useEffect(() => {

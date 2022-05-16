@@ -6,6 +6,7 @@ import { AiOutlineInstagram } from 'react-icons/ai';
 import { FaTiktok } from 'react-icons/fa';
 import style from '../styles/pages/contact.module.scss';
 import cx from 'classnames';
+import { SocialIcons } from '../components/social-icons/social-icons.component';
 
 const dummyText = `Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
@@ -30,20 +31,7 @@ const Contact: NextPage = () => {
                     <p>{dummyText}</p>
                     <p>{dummyText}</p>
                 </div>
-                <div className={style.social}>
-                    <li className={cx(style.icon, style.mail)}>
-                        <span className={style.tooltip}>Mail</span>
-                        <AiFillMail />
-                    </li>
-                    <li className={cx(style.icon, style.instagram)}>
-                        <span className={style.tooltip}>Instagram</span>
-                        <AiOutlineInstagram />
-                    </li>
-                    <li className={cx(style.icon, style.tiktok)}>
-                        <span className={style.tooltip}>Tik Tok</span>
-                        <FaTiktok />
-                    </li>
-                </div>
+                <SocialIcons />
             </div>
         </div>
     );

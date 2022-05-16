@@ -1,0 +1,154 @@
+@import '../../styles/breakpoints.scss';
+
+.container {
+    width: 100%;
+
+    display: inline-flex;
+    justify-content: space-around;
+
+    list-style: none;
+
+    .icon {
+        position: relative;
+        width: 50px;
+        height: 50px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        padding: 15px;
+        margin: 10px;
+        border-radius: 50%;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+        font-size: 18px;
+        transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        cursor: pointer;
+        background: #ffffff;
+
+        & > a {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        .tooltip {
+            position: absolute;
+            top: -35px;
+            opacity: 1;
+            visibility: hidden;
+            pointer-events: auto;
+
+            padding: 5px 8px;
+            border-radius: 5px;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+            font-size: 14px;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            background: #ffffff;
+            color: #ffffff;
+
+            @include breakpoint(desktop) {
+                top: 0;
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+            }
+
+            &::before {
+                @include breakpoint(desktop) {
+                    position: absolute;
+                    content: '';
+                    height: 8px;
+                    width: 10px;
+                    background: #ffffff;
+                    bottom: -3px;
+                    left: 50%;
+                    transform: translate(-50%) rotate(45deg);
+                    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                }
+            }
+        }
+
+        &:hover .tooltip {
+            top: -45px;
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        &:hover span,
+        &:hover .tooltip {
+            text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Coloring */
+
+        //
+        &.mail {
+            background: #1877f2;
+            color: #ffffff;
+            .tooltip {
+                background: #1877f2;
+                color: #ffffff;
+            }
+            @include breakpoint(desktop) {
+                background: unset;
+                color: unset;
+            }
+        }
+        &.instagram {
+            background: #e4405f;
+            color: #ffffff;
+            .tooltip {
+                background: #e4405f;
+                color: #ffffff;
+            }
+            @include breakpoint(desktop) {
+                background: unset;
+                color: unset;
+            }
+        }
+        &.tiktok {
+            background: #333333;
+            color: #ffffff;
+            .tooltip {
+                background: #333333;
+                color: #ffffff;
+            }
+            @include breakpoint(desktop) {
+                background: unset;
+                color: unset;
+            }
+        }
+
+        &.mail:hover,
+        &.mail:hover .tooltip,
+        &.mail:hover .tooltip::before {
+            background: #1877f2;
+            color: #ffffff;
+        }
+
+        &.instagram:hover,
+        &.instagram:hover .tooltip,
+        &.instagram:hover .tooltip::before {
+            background: #e4405f;
+            color: #ffffff;
+        }
+
+        &.tiktok {
+            .tooltip {
+                width: 4rem;
+                text-align: center;
+            }
+        }
+        &.tiktok:hover,
+        &.tiktok:hover .tooltip,
+        &.tiktok:hover .tooltip::before {
+            background: #333333;
+            color: #ffffff;
+        }
+    }
+}

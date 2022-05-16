@@ -15,6 +15,8 @@
         flex-direction: column;
         width: 30px;
 
+        cursor: pointer;
+
         @include breakpoint(desktop) {
             height: 100%;
 
@@ -71,8 +73,10 @@
         position: absolute;
         top: 100%;
         right: 0;
-
         visibility: hidden;
+
+        border-radius: 10px;
+        background-color: rgba(193, 193, 193, 0.9);
 
         @include breakpoint(desktop) {
             visibility: visible;
@@ -83,6 +87,7 @@
 
             padding: 0.5rem 0;
             margin-bottom: 0.5rem;
+            background-color: rgba(0, 0, 0, 0);
         }
 
         & > ul {
@@ -104,6 +109,9 @@
                     &:hover {
                         text-decoration: underline;
                     }
+                    &.selected {
+                        text-decoration: underline;
+                    }
                 }
 
                 & > ul {
@@ -121,6 +129,12 @@
 
                         &:hover {
                             text-decoration: underline;
+                        }
+
+                        & a {
+                            &.selected {
+                                text-decoration: underline;
+                            }
                         }
                     }
                 }

@@ -8,39 +8,33 @@
         order: 0;
     }
 
-    .icons {
-        display: flex;
-        align-items: center;
-
+    .social {
+        height: 3rem;
+        width: 90%;
         float: right;
 
         @include breakpoint(desktop) {
-            float: unset;
+            float: left;
+            width: 80%;
         }
 
-        & > * {
-            margin-right: 1rem;
-            text-align: center;
-            cursor: pointer;
-        }
-
-        & > svg {
-            padding: 0.05rem;
-            &:hover {
-                border: 1px solid black;
-                border-radius: 50%;
+        // Changes to SocialIcons to be responsive
+        & > div {
+            justify-content: flex-end;
+            @include breakpoint(desktop) {
+                justify-content: unset;
             }
         }
-
-        & > span {
-            display: none;
+        & > div > li {
+            height: 1.5rem;
+            width: 1.5rem;
+            padding: 0.1rem;
+            margin: 0.8rem 0.5rem;
 
             @include breakpoint(desktop) {
-                display: unset;
-            }
-
-            &:hover {
-                text-decoration: underline;
+                height: 2rem;
+                width: 2rem;
+                padding: 0.1rem;
             }
         }
     }

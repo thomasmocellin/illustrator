@@ -1,15 +1,14 @@
 import Link from 'next/link';
-
+import { useRouter } from 'next/router';
 import style from './menu-hamburger.module.scss';
+import cx from 'classnames';
 
-export interface MenuHamburgerProps {}
-
-const defaultProps = {} as Required<MenuHamburgerProps>;
-
-// TODO: Make this into container (options come from props)
-// TODO: Finish styling for mobile
-export function MenuHamburger(props: MenuHamburgerProps) {
-    const {} = { ...defaultProps, ...props };
+// TODO: Make this into container (options come from props) and change name to menu responsive
+export function MenuHamburger() {
+    const {
+        pathname,
+        query: { type },
+    } = useRouter();
 
     return (
         <div className={style.container}>
@@ -22,30 +21,30 @@ export function MenuHamburger(props: MenuHamburgerProps) {
                     <ul>
                         <li>
                             <Link href='/homepage'>
-                                <a>Home</a>
+                                <a className={cx({ [style.selected]: checkPathname('homepage') })}>Home</a>
                             </Link>
                         </li>
                         <li>
                             <Link href='/gallery/all'>
-                                <a>Galleries</a>
+                                <a className={cx({ [style.selected]: checkPathname('gallery') })}>Galleries</a>
                             </Link>
                             <ul>
                                 <Link href='/gallery/traditional'>
-                                    <a>Traditional</a>
+                                    <a className={cx({ [style.selected]: checkQueryType('traditional') })}>Traditional</a>
                                 </Link>
                                 <Link href='/gallery/digital'>
-                                    <a>Digital</a>
+                                    <a className={cx({ [style.selected]: checkQueryType('digital') })}>Digital</a>
                                 </Link>
                             </ul>
                         </li>
                         <li>
                             <Link href='/about'>
-                                <a>About</a>
+                                <a className={cx({ [style.selected]: checkPathname('about') })}>About</a>
                             </Link>
                         </li>
                         <li>
                             <Link href='/contact'>
-                                <a>Contact</a>
+                                <a className={cx({ [style.selected]: checkPathname('contact') })}>Contact</a>
                             </Link>
                         </li>
                     </ul>
@@ -53,4 +52,12 @@ export function MenuHamburger(props: MenuHamburgerProps) {
             </label>
         </div>
     );
+
+    /** Check if pathname/query includes a certain 'name' as a sub-string */
+    function checkPathname(name: string): boolean {
+        return pathname.includes(name);
+    }
+    function checkQueryType(name: string): boolean {
+        return type ? type.includes(name) : false;
+    }
 }
