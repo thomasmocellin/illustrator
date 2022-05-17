@@ -33,7 +33,6 @@ const dummyImgs = [
     'https://images.unsplash.com/photo-1527928159272-7d012024eb74?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80',
 ];
 
-// TODO: Create dropdown Component + Implement here
 const GalleryType: NextPage = () => {
     const { type } = useRouter().query;
     const [images, setImages] = useState([]);

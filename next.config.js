@@ -14,6 +14,11 @@ async function redirects() {
             destination: '/homepage',
             permanent: true,
         },
+        {
+            source: '/gallery',
+            destination: '/gallery/all',
+            permanent: true,
+        },
     ];
 }
 

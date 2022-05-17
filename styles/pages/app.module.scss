@@ -69,5 +69,9 @@
                 transparent
             );
         }
+
+        & > main {
+            height: 100%;
+        }
     }
 }

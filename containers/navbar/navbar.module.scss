@@ -12,6 +12,7 @@
     }
 
     & > h1 {
+        position: relative;
         order: 0;
         margin: 0;
 
@@ -20,11 +21,29 @@
         justify-content: center;
 
         font-size: x-large;
+        cursor: pointer;
         color: rgb(0, 84, 84);
 
         @include breakpoint(desktop) {
             order: 0;
             margin: 0.5rem 0;
+        }
+
+        .secret {
+            content: '';
+            z-index: 2;
+            position: absolute;
+            top: 4px;
+            left: 130px;
+            height: 0.5rem;
+            width: 0.5rem;
+
+            cursor: pointer;
+
+            &:hover {
+                border-radius: 50%;
+                background-color: rgba(0, 84, 84, 1);
+            }
         }
     }
 

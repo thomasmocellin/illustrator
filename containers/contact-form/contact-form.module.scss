@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0.2rem 1rem;
+
+    & > label {
+        margin-top: 0.5rem;
+
+        & > textarea,
+        & > input {
+            width: 100%;
+            padding: 0.5rem;
+            border: 1px solid rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+
+            outline-width: 0;
+            resize: none;
+        }
+
+        & > textarea {
+            height: 10rem;
+        }
+    }
+
+    & > button {
+        margin: 1rem 2rem;
+
+        margin: 0 0.1rem;
+        height: 4rem;
+        font-size: 2rem;
+
+        padding: 0.2rem 3rem;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+
+        cursor: pointer;
+        font-size: x-large;
+        background-color: white;
+
+        &:hover {
+            background-color: rgba(0, 84, 84, 0.7);
+            color: white;
+        }
+    }
+}

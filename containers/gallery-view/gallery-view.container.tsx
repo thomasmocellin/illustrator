@@ -20,7 +20,7 @@ export function GalleryView(props: GalleryViewProps) {
         <div className={style.container}>
             <div className={style.grid}>
                 {srcs.map((src, i) => (
-                    <div className={cx(style.cell, style[imgSizes[i % imgSizes.length]])}>
+                    <div className={cx(style.cell, style[imgSizes[i % imgSizes.length]])} key={i}>
                         <RenderIfVisible stayRendered={true}>
                             <img src={src} alt='...' loading='lazy' />
                         </RenderIfVisible>

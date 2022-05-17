@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import style from './menu-hamburger.module.scss';
+import style from './menu-responsive.module.scss';
 import cx from 'classnames';
 
-// TODO: Make this into container (options come from props) and change name to menu responsive
-export function MenuHamburger() {
+export function MenuResponsive() {
     const {
         pathname,
         query: { type },

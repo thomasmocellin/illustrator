@@ -1,9 +1,13 @@
+import { useState } from 'react';
 import type { NextPage } from 'next';
 
 import { SocialIcons } from '../components/social-icons/social-icons.component';
+import { ContactForm } from '../containers/contact-form/contact-form.component';
 
+import { GrClose } from 'react-icons/gr';
 import { BiMessageDetail } from 'react-icons/bi';
 import style from '../styles/pages/contact.module.scss';
+import cx from 'classnames';
 
 const dummyText = `Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
@@ -14,12 +18,13 @@ Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
 Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.`;
 
-// TODO: Make modal when clicking "Direct Request" btn: send immediately simple email
 const Contact: NextPage = () => {
+    const [modalOpened, setModalOpened] = useState(false);
+
     return (
         <div className={style.container}>
             <h2>Contact</h2>
-            <button>
+            <button onClick={() => setModalOpened(true)}>
                 <span>Direct Request</span>
                 <BiMessageDetail />
             </button>
@@ -31,14 +36,21 @@ const Contact: NextPage = () => {
                 </div>
                 <SocialIcons />
             </div>
+
+            <div className={style.modal}>
+                <div className={style.section}>
+                    <div className={cx(style.modal, { [style.opened]: modalOpened })}>
+                        <div className={style['modal-wrap']}>
+                            <ContactForm />
+                        </div>
+                        <button className={style['close-btn']} onClick={() => setModalOpened(false)}>
+                            <GrClose />
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
-
-export async function getStaticProps() {
-    return {
-        props: {},
-    };
-}
 
 export default Contact;
