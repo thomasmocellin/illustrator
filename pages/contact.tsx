@@ -3,20 +3,19 @@ import type { NextPage } from 'next';
 
 import { SocialIcons } from '../components/social-icons/social-icons.component';
 import { ContactForm } from '../containers/contact-form/contact-form.component';
+import { ModalOverlay } from '../components/modal-overlay/modal-overlay.component';
 
-import { GrClose } from 'react-icons/gr';
 import { BiMessageDetail } from 'react-icons/bi';
 import style from '../styles/pages/contact.module.scss';
-import cx from 'classnames';
 
 const dummyText = `Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
-Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.`;
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.
+                    Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas. Lorem ipsum Thomas.`;
 
 const Contact: NextPage = () => {
     const [modalOpened, setModalOpened] = useState(false);
@@ -37,18 +36,19 @@ const Contact: NextPage = () => {
                 <SocialIcons />
             </div>
 
-            <div className={style.modal}>
-                <div className={style.section}>
-                    <div className={cx(style.modal, { [style.opened]: modalOpened })}>
-                        <div className={style['modal-wrap']}>
-                            <ContactForm />
-                        </div>
-                        <button className={style['close-btn']} onClick={() => setModalOpened(false)}>
-                            <GrClose />
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <ModalOverlay
+                isOpen={modalOpened}
+                setIsOpen={(isOpen) => setModalOpened(isOpen)}
+                contentCSS={{
+                    width: '100%',
+                    maxWidth: '400px',
+                    marginTop: '20px',
+                    marginBottom: '20px',
+                    paddingBottom: '20px',
+                }}
+            >
+                <ContactForm />
+            </ModalOverlay>
         </div>
     );
 };

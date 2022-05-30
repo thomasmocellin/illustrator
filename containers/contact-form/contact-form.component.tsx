@@ -4,7 +4,7 @@ import style from './contact-form.module.scss';
 
 export function ContactForm() {
     const [formInfo, setFormInfo] = useState({ name: '', email: '', description: '' });
-    console.log(formInfo);
+
     return (
         <div className={style.container}>
             <h2>Send Email:</h2>

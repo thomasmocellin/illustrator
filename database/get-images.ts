@@ -23,6 +23,6 @@ export async function getImages(limit: number) {
         const results = await conn.query(query, [limit]);
         return results;
     } catch (error) {
-        console.log(error);
+        console.info(error);
     }
 }
