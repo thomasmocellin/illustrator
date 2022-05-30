@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
 import { GalleryView } from '../containers/gallery-view/gallery-view.container';
-import { getImages } from '../database/get-images';
+import { getAllImages, getImages } from '../database/get-images';
 
 import style from '../styles/pages/homepage.module.scss';
 
@@ -13,7 +13,7 @@ const Homepage: NextPage<{ images: { id: number; url: string }[] }> = ({ images 
 };
 
 export async function getStaticProps() {
-    const res = await getImages(10);
+    const res = (await getAllImages(10)) || [];
     const images = res.rows || [];
 
     return {

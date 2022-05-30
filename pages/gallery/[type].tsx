@@ -7,6 +7,7 @@ import { GalleryView } from '../../containers/gallery-view/gallery-view.containe
 
 import style from '../../styles/pages/gallery.module.scss';
 import cx from 'classnames';
+import { getImages } from '../../database/get-images';
 
 const dummyImgs = [
     'https://images.unsplash.com/photo-1541845157-a6d2d100c931?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1350&amp;q=80',
@@ -38,10 +39,20 @@ const GalleryType: NextPage = () => {
     const [images, setImages] = useState([]);
 
     useEffect(() => {
-        // TODO: Here Thomas, and replace images below as food for GalleryView!
-        // const images = getData(type)
-        // setImages(images)
+        getData(type as any).then((images) => {
+            setImages(images);
+        });
     }, []);
+
+    async function getData(type: string) {
+        if (type === 'traditional') {
+            return await getImages(100, 't');
+        } else if (type === 'digital') {
+            return await getImages(100, 'd');
+        } else {
+            return [];
+        }
+    }
 
     if (type !== 'all' && type !== 'traditional' && type !== 'digital') return <div>Wrong route...</div>;
 
@@ -70,7 +81,7 @@ const GalleryType: NextPage = () => {
                 </ul>
             </div>
 
-            <GalleryView srcs={dummyImgs} />
+            <GalleryView srcs={images} />
         </div>
     );
 };
